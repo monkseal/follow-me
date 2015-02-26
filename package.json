@@ -1,0 +1,11 @@
+{
+  "name": "videodrome-pod-twitter.js",
+  "engines": {
+    "node": "~0.10.0"
+  },
+  "dependencies": {
+    "read-yaml": "~1.0.0",
+    "twitter": "~1.2.1"
+  }
+
+}
