@@ -20,8 +20,8 @@ describe('TwitterStatus', function() {
     });
   });
 
-  describe('#displayTweets', function() {
-    it('calls with correct params', function() {
+  describe('#displayFollowers', function() {
+    it('returns this', function() {
       var tweet = { text: 'Hello Twitter' } ;
       var tweets = [tweet];
       var twitterStatus = new TwitterStatus(client);
