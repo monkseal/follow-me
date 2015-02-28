@@ -4,13 +4,28 @@
     "node": "~0.10.0"
   },
   "dependencies": {
+    "twit": "~1.1.20",
     "read-yaml": "~1.0.0",
-    "twit": "~1.1.20"
+
+    "babel-jest": "*",
+    "jest": "*",
+    "babel": "^4.6.0",
+    "babel-core": "^4.6.1",
+    "jest-cli": "^0.4.0"
   },
-  "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-jasmine": "^2.0.0",
-    "jasmine": "^2.2.1",
-    "jasmine-core": "^2.2.0"
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "scriptPreprocessor": "/Users/ken_glish/workspace/videodrome_pod/es6/node_modules/babel-jest",
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   }
 }
