@@ -13,4 +13,4 @@ console.log(TwitterStatus)
 var config = ReadYaml.sync('twitter.yml');
 var client = new Twit(config);
 var twitterStatus = new TwitterStatus(client);
-twitterStatus.showStatusFor('videodrome_pod')
+twitterStatus.showStatusFor('videodrome_pod');
