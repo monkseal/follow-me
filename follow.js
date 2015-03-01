@@ -1,7 +1,6 @@
 "use strict"
 import FollowService from './lib/follow-service';
 
-
 var cliArgs = require("command-line-args");
 
 /* define the command-line options */
@@ -24,9 +23,6 @@ if (options.help || !options.screen_names) {
   console.log(usage);
   return
 }
-
-
-
 
 // Very thin wrapper around js-yaml for directly reading in YAML files.
 // www.npmjs.com/package/read-yaml
