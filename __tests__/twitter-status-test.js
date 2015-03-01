@@ -11,8 +11,8 @@ describe('TwitterStatus', function() {
       var twitterStatus = new TwitterStatus(client);
       twitterStatus.showStatusFor('videodrome_pod' );
       expect(client.get.mock.calls.length).toEqual(1);
-      expect(client.get.mock.calls[0][0]).toEqual('statuses/user_timeline')
-      expect(client.get.mock.calls[0][1]).toEqual({screen_name: 'videodrome_pod'})
+      expect(client.get.mock.calls[0][0]).toEqual('statuses/user_timeline');
+      expect(client.get.mock.calls[0][1]).toEqual({screen_name: 'videodrome_pod'});
     });
   });
 
@@ -24,6 +24,5 @@ describe('TwitterStatus', function() {
       expect(twitterStatus.displayTweets(tweets)).toEqual(twitterStatus);
     });
   });
-
 
 });

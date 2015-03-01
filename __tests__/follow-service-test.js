@@ -19,8 +19,8 @@ describe('FollowService', function() {
       var followService = new FollowService(client, userId);
       followService.showFollowers();
       expect(client.get.mock.calls.length).toEqual(1);
-      expect(client.get.mock.calls[0][0]).toEqual('followers/ids')
-      expect(client.get.mock.calls[0][1]).toEqual({user_id: userId, count: 10})
+      expect(client.get.mock.calls[0][0]).toEqual('followers/ids');
+      expect(client.get.mock.calls[0][1]).toEqual({user_id: userId, count: 10});
     });
   });
 
@@ -96,8 +96,8 @@ describe('FollowService', function() {
           expect(client.get.mock.calls.length).toEqual(1);
           expect(client.get.mock.calls[0][0]).toEqual('friendships/show');
           expect(client.get.mock.calls[0][1]).toEqual( { source_id: userId, target_id: toFollowId });
-          client.get.mock.calls[0][2].call(followService, null, data, {header:{}})
-          expect(spy).toHaveBeenCalledWith(options)
+          client.get.mock.calls[0][2].call(followService, null, data, {header:{}});
+          expect(spy).toHaveBeenCalledWith(options);
 
         });
 
@@ -127,8 +127,8 @@ describe('FollowService', function() {
           expect(client.get.mock.calls.length).toEqual(1);
           expect(client.get.mock.calls[0][0]).toEqual('friendships/show');
           expect(client.get.mock.calls[0][1]).toEqual( { source_id: userId, target_id: toFollowId });
-          client.get.mock.calls[0][2].call(followService, null, data, {header:{}})
-          expect(spy).not.toHaveBeenCalledWith(options)
+          client.get.mock.calls[0][2].call(followService, null, data, {header:{}});
+          expect(spy).not.toHaveBeenCalledWith(options);
 
         });
       });
@@ -148,14 +148,14 @@ describe('FollowService', function() {
       var followService = new FollowService(client, userId);
       expect(followService.follow({user_id: toFollowId})).toEqual(followService);
       expect(client.post.mock.calls.length).toEqual(1);
-      expect(client.post.mock.calls[0][0]).toEqual('friendships/create')
-      expect(client.post.mock.calls[0][1]).toEqual( { user_id: toFollowId, follow: true })
+      expect(client.post.mock.calls[0][0]).toEqual('friendships/create');
+      expect(client.post.mock.calls[0][1]).toEqual( { user_id: toFollowId, follow: true });
     });
 
     describe('when invalid args', function() {
       it('throws error and  does not call twitter', function() {
         var followService = new FollowService(client, userId);
-        expect(function(){  followService.follow() }).toThrow()
+        expect(function(){  followService.follow() }).toThrow();
         expect(client.post.mock.calls.length).toEqual(0);
       });
     });
@@ -169,13 +169,11 @@ describe('FollowService', function() {
         expect(options.follow).not.toBeDefined();
         // calls twitter
         expect(client.post.mock.calls.length).toEqual(1);
-        expect(client.post.mock.calls[0][0]).toEqual('friendships/create')
-        expect(client.post.mock.calls[0][1]).toEqual( { screen_name: 'justinbieber', follow: true })
+        expect(client.post.mock.calls[0][0]).toEqual('friendships/create');
+        expect(client.post.mock.calls[0][1]).toEqual( { screen_name: 'justinbieber', follow: true });
       });
     });
 
   });
-
-
 
 });
