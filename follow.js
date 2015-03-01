@@ -7,6 +7,7 @@ var cliArgs = require("command-line-args");
 var cli = cliArgs([
     { name: "verbose", type: Boolean, alias: "v", description: "Write plenty output" },
     { name: "help", type: Boolean, description: "Print usage instructions" },
+    { name: "userId", type: String, alias: "u",  description: "User id of your account." },
     { name: "screen_names", type: Array, defaultOption: true, description: "Screen names to follow" }
 ]);
 
@@ -15,11 +16,12 @@ var options = cli.parse();
 
 /* generate a usage guide */
 var usage = cli.getUsage({
-    header: "A synopsis application.",
-    footer: "For more information, visit http://example.com"
+    header: "Follow a list of users on twitter.\n\nExample:\n\n  follow.js -u 111111 justinbieber taylorswift13",
+    footer: "For more information, visit https://github.com/monkseal/follow-me"
 });
 
-if (options.help || !options.screen_names) {
+if (options.help || !options.userId || !options.screen_names || options.screen_names.length < 1 ) {
+  console.log("Missing Argument");
   console.log(usage);
   return
 }
@@ -34,9 +36,12 @@ var Twit = require('twit');
 var config = ReadYaml.sync('twitter.yml');
 var client = new Twit(config);
 
-var userId =  3035238012;
+var userId =  options.userId;
 var followService = new FollowService(client, userId)
-// followService.follow({screen_name: 'corpseheads'})
+
 options.screen_names.forEach(function(screenName, _i) {
-  followService.onNotFollowing({screen_name: screenName}, (options) => { followService.follow(options) });
+    followService.onNotFollowing(
+      {screen_name: screenName},
+      (options) => { followService.follow(options) }
+    );
 });
