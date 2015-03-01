@@ -18,7 +18,7 @@
     "test": "jest"
   },
   "jest": {
-    "scriptPreprocessor": "/Users/ken_glish/workspace/videodrome_pod/es6/node_modules/babel-jest",
+    "scriptPreprocessor": "node_modules/babel-jest",
     "testFileExtensions": [
       "es6",
       "js"
