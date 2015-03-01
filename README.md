@@ -1,5 +1,5 @@
 # follow-me
-Script to increase your twitter followers
+Script to increase your twitter followers. Uses es6 (with [babel](https://www.npmjs.com/package/babel)), [Jest](https://facebook.github.io/jest) and [Twit](https://www.npmjs.com/package/twit).
 
 ## Installation
 
