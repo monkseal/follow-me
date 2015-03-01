@@ -35,6 +35,7 @@ describe('FollowService', function() {
     });
 
     describe('when valid args', function(){
+
       it('with user_id returns this and calls twitter', function() {
         var followService = new FollowService(client, userId);
         expect(followService.onNotFollowing({user_id: toFollowId})).toEqual(followService);
@@ -44,6 +45,7 @@ describe('FollowService', function() {
         expect(client.get.mock.calls[0][1]).toEqual( { source_id: userId, target_id: toFollowId });
 
       });
+
       it('with screen_name, returns this and calls twitter', function() {
         var followService = new FollowService(client, userId);
         expect(followService.onNotFollowing({screen_name: 'justinbieber'})).toEqual(followService);
@@ -53,15 +55,17 @@ describe('FollowService', function() {
         expect(client.get.mock.calls[0][1]).toEqual( { source_id: userId, target_screen_name:  'justinbieber' });
 
       });
+
     });
 
     describe('when invalid args', function(){
+
       it('raises expeciton and does not calls twitter', function() {
         var followService = new FollowService(client, userId);
         expect(function() { followService.onNotFollowing() }).toThrow();
         expect(client.get.mock.calls.length).toEqual(0);
-
       });
+
     });
 
     describe('invocation of callback', function(){
@@ -115,7 +119,7 @@ describe('FollowService', function() {
           };
         });
 
-        it('invokes callback', function() {
+        it('does not invokes callback', function() {
           var followService = new FollowService(client, userId);
           var options = { user_id: toFollowId };
           expect(followService.onNotFollowing(options, spy)).toEqual(followService);
